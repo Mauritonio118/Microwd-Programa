@@ -197,7 +197,7 @@ class PlataATexto:
 
         letras = self.numero_a_letras(numero_entero)
         letras = letras.replace('UNO', 'UN')
-        letras = f"{letras} CON {parte_decimal}/100 {moneda}"
+        letras = f"{letras} {moneda} CON {parte_decimal}/100"
         return letras
     
     def deletrear(self, monto):
