@@ -7,6 +7,7 @@ hojaFinal = 'DATOS FINALES'
 print(f"Iniciando: {nombreExcel}")
 import pandas as pd 
 import AlgoATexto 
+import xlwings as xw
 import os
 import sys
 
@@ -120,20 +121,33 @@ except ValueError as e:
 # Crear un objeto ExcelWriter dirigido al excel existente
 try:
     print(f"Guardando '{hojaFinal}' en '{nombreExcel}'")
-    writer = pd.ExcelWriter(nombreExcel, engine='openpyxl', mode='a', if_sheet_exists="replace")
 
-    # Agregar los datos una nueva hoja al libro de Excel existente
-    df.to_excel(writer, sheet_name=hojaFinal, index=False)
+    # Abrir el libro de Excel, configurando visible a False
+    app = xw.App(visible=False)
+    book = app.books.open(nombreExcel)
 
-    # Ajustar el ancho de las columnas al contenido
-    ws = writer.sheets[hojaFinal]
-    for columnas in ws.columns:
-        largo = max(len(str(cell.value)) for cell in columnas)
-        ws.column_dimensions[columnas[0].column_letter].width = largo
+    # Verificar si la hoja ya existe y eliminarla en ese caso
+    if hojaFinal in [sheet.name for sheet in book.sheets]:
+        book.sheets[hojaFinal].delete()
 
-    # Guardar los cambios
-    writer.book.save(nombreExcel)
-    writer.close()
+    # Crear una nueva hoja con el nombre deseado
+    sheet = book.sheets.add(hojaFinal)
+
+    # Escribir los datos en la hoja de Excel
+    sheet.range('A1').value = df
+
+    # Ajustar el ancho de las columnas
+    sheet.autofit('c')
+
+    # Formatear la primera fila (los nombres de las columnas)
+    first_row = sheet.range('1:1')
+    first_row.api.Font.Size = 12  # Cambiar el tamaño de la fuente
+    first_row.api.Font.Bold = True  # Poner en negrita
+    first_row.api.Interior.Color = xw.utils.rgb_to_int((173, 216, 230))  # Cambiar el color de fondo
+
+    # Guardar los cambios y cerrar
+    book.save()
+    app.quit()
 
 
 except PermissionError as e:
