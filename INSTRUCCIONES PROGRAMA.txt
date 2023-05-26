@@ -1,0 +1,28 @@
+Guía de Uso para el Programa "DATOS CONTRATO V1.2.1.exe"
+
+Pasos a seguir:
+
+1. Preparación:
+   Asegúrate de que los archivos "DATOS CONTRATO V1.2.1.exe" y "DATOS CONTRATO V1.2.1.xlsx" estén en la misma carpeta.
+
+2. Ingresar datos:
+   Completa todos los campos del contrato en el archivo Excel. Todos los campos son necesarios para la creación del contrato.
+
+3. Guardar y cerrar Excel:
+   Guarda y cierra el archivo Excel una vez que todos los datos estén correctamente ingresados. Si el archivo Excel está abierto durante la ejecución del programa, se producirá un error.
+
+4. Ejecutar el programa:
+   Realiza doble clic en "DATOS CONTRATO V1.2.1.exe" para ejecutar el programa. Si es tu primera vez ejecutándolo, tu computadora podría emitir una advertencia de seguridad. No te preocupes, el programa es seguro y puedes continuar.
+
+5. Revisar los datos generados:
+   Abre el archivo Excel y selecciona "Sí" cuando te pregunte acerca del "origen del libro". Ve a la hoja "DATOS FINALES" y verifica que toda la información sea correcta. Si encuentras algún error, puedes corregirlo directamente en esta hoja.
+
+6. Guardar el archivo:
+   Guarda el archivo con el mismo nombre, "DATOS CONTRATO V1.2.1.xlsx", y reemplaza el archivo existente en la carpeta.
+
+7. Generar los documentos:
+   Para crear los documentos Word "CONTRATO_MICROWD", "PAGARE_MICROWD" y "PAGARE_CON_ADENDUM_ASOCIACIONES", necesitas conectarte a la hoja "DATOS FINALES" del archivo Excel mediante la función de Correspondencia.
+
+El programa cuenta con gestión de errores para los problemas más comunes y proporciona sugerencias para solucionarlos. La mayoría de los problemas se originan debido a errores en los datos ingresados en el Excel o cambios en el nombre del archivo o de las columnas.
+
+Estas instrucciones son válidas para la versión 1.1 del programa. Sin embargo, ten en cuenta que en caso de error, la versión 1.1 simplemente se cierra y no genera todos los datos requeridos para las versiones mejoradas de los contratos y pagarés.

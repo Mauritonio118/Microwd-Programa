@@ -1,0 +1,21 @@
+"DATOS CONTRATO V1.2.1
+
+Esta es una solución Addoc destinada a la creación automatizada de los contratos de Microwd Nicaragua, actualizada hasta el 28 de Mayo de 2023. Está diseñada para interactuar con un archivo Excel, en el que se leen y se almacenan los datos procesados. Posteriormente, estos datos se transfieren a los documentos de Word mediante la función de Correspondencia de Excel.
+
+El programa se basa en dos scripts escritos en Python:
+
+1. AlgoATexto.py: 
+   Este script contiene la lógica de transformación de los datos de entrada para adecuarlos al formato requerido por los contratos. Este módulo incluye tres clases:
+
+   - Clase "PlataATexto": Se encarga de convertir montos de dinero, números y tasas al formato de texto deseado. Esta clase se instancia tres veces al final del código.
+
+   - Clase "CosasATexto": Maneja los formatos de texto, incluyendo DNI, fechas y textos que deben presentarse en mayúsculas.
+
+   - Clase "Financiero": Realiza cálculos dinámicos de las tasas de crédito basándose en los datos de flujo de un crédito. Las funciones de esta clase retornan valores en punto flotante, no textos finales para el contrato.
+
+   Este archivo importa funciones de las bibliotecas 'pandas' y 'numpy_financial'.
+
+2. Main.py: 
+   Este script se encarga de leer, procesar y guardar los datos de los contratos en el archivo Excel. También gestiona los errores e informa al usuario. Para minimizar los errores, es importante que los datos de entrada sean válidos. Idealmente, esto se logra mediante la validación de datos en el archivo Excel fuente.
+
+   Este archivo importa funciones de los módulos 'AlgoATexto', 'pandas', 'os' y 'sys'.
